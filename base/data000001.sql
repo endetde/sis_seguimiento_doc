@@ -5,7 +5,7 @@
 
 INSERT INTO segu.tsubsistema ("codigo", "nombre", "fecha_reg", "prefijo", "estado_reg", "nombre_carpeta", "id_subsis_orig")
 VALUES 
-  (E'SEGDOC', E'Seguimiento de Documentos', E'2017-01-31', E'SEG', E'activo', E'seguimiento_doc', NULL);
+  (E'SEGDOC', E'Seguimiento de Documentos', E'2017-01-31', E'SEG', E'activo', E'seguimiento_doc', NULL);  
   
   
 ----------------------------------
@@ -24,7 +24,7 @@ select pxp.f_insert_tgui ('Funcionarios', 'Funcionarios', 'RDOC.5', 'no', 0, 'si
 select pxp.f_insert_tgui ('Documentos del Proceso', 'Documentos del Proceso', 'RDOC.1.1', 'no', 0, 'sis_workflow/vista/documento_wf/DocumentoWf.php', 4, '', '90%', 'SEGDOC');
 select pxp.f_insert_tgui ('Subir ', 'Subir ', 'RDOC.1.1.1', 'no', 0, 'sis_workflow/vista/documento_wf/SubirArchivoWf.php', 5, '', 'SubirArchivoWf', 'SEGDOC');
 select pxp.f_insert_tgui ('Documentos de Origen', 'Documentos de Origen', 'RDOC.1.1.2', 'no', 0, 'sis_workflow/vista/documento_wf/DocumentoWf.php', 5, '', '90%', 'SEGDOC');
-select pxp.f_insert_tgui ('Histórico', 'Histórico', 'RDOC.1.1.3', 'no', 0, 'sis_workflow/vista/documento_historico_wf/DocumentoHistoricoWf.php', 5, '', '30%', 'SEGDOC');
+select pxp.f_insert_tgui ('Histï¿½rico', 'Histï¿½rico', 'RDOC.1.1.3', 'no', 0, 'sis_workflow/vista/documento_historico_wf/DocumentoHistoricoWf.php', 5, '', '30%', 'SEGDOC');
 select pxp.f_insert_tgui ('Estados por momento', 'Estados por momento', 'RDOC.1.1.4', 'no', 0, 'sis_workflow/vista/tipo_documento_estado/TipoDocumentoEstadoWF.php', 5, '', '40%', 'SEGDOC');
 select pxp.f_insert_tgui ('Pagos similares', 'Pagos similares', 'RDOC.1.1.5', 'no', 0, 'sis_tesoreria/vista/plan_pago/RepFilPlanPago.php', 5, '', '90%', 'SEGDOC');
 select pxp.f_insert_tgui ('Funcionarios', 'Funcionarios', 'RDOC.4.1', 'no', 0, 'sis_organigrama/vista/funcionario/Funcionario.php', 4, '', 'funcionario', 'SEGDOC');
@@ -42,7 +42,7 @@ select pxp.f_insert_tgui ('Funcionarios', 'Funcionarios', 'VBDOC.5', 'no', 0, 's
 select pxp.f_insert_tgui ('Documentos del Proceso', 'Documentos del Proceso', 'VBDOC.1.1', 'no', 0, 'sis_workflow/vista/documento_wf/DocumentoWf.php', 4, '', '90%', 'SEGDOC');
 select pxp.f_insert_tgui ('Subir ', 'Subir ', 'VBDOC.1.1.1', 'no', 0, 'sis_workflow/vista/documento_wf/SubirArchivoWf.php', 5, '', 'SubirArchivoWf', 'SEGDOC');
 select pxp.f_insert_tgui ('Documentos de Origen', 'Documentos de Origen', 'VBDOC.1.1.2', 'no', 0, 'sis_workflow/vista/documento_wf/DocumentoWf.php', 5, '', '90%', 'SEGDOC');
-select pxp.f_insert_tgui ('Histórico', 'Histórico', 'VBDOC.1.1.3', 'no', 0, 'sis_workflow/vista/documento_historico_wf/DocumentoHistoricoWf.php', 5, '', '30%', 'SEGDOC');
+select pxp.f_insert_tgui ('HistÃ³rico', 'HistÃ³rico', 'VBDOC.1.1.3', 'no', 0, 'sis_workflow/vista/documento_historico_wf/DocumentoHistoricoWf.php', 5, '', '30%', 'SEGDOC');
 select pxp.f_insert_tgui ('Estados por momento', 'Estados por momento', 'VBDOC.1.1.4', 'no', 0, 'sis_workflow/vista/tipo_documento_estado/TipoDocumentoEstadoWF.php', 5, '', '40%', 'SEGDOC');
 select pxp.f_insert_tgui ('Pagos similares', 'Pagos similares', 'VBDOC.1.1.5', 'no', 0, 'sis_tesoreria/vista/plan_pago/RepFilPlanPago.php', 5, '', '90%', 'SEGDOC');
 select pxp.f_insert_tgui ('Funcionarios', 'Funcionarios', 'VBDOC.4.1', 'no', 0, 'sis_organigrama/vista/funcionario/Funcionario.php', 4, '', 'funcionario', 'SEGDOC');
@@ -77,4 +77,23 @@ select pxp.f_insert_trol ('REgistro de documentos', 'SEG-Registro', 'SEGDOC');
 select pxp.f_insert_trol ('VoBo Documentos', 'SEG - VoBo', 'SEGDOC');  
 
 /********************************************F-DAT-RAC-SEG-0-15/01/2013********************************************/
+
+
+/********************************************I-DAT-RAC-SEG-0-13/02/2017********************************************/
+
+
+select wf.f_import_tproceso_macro ('insert','SD', 'SEGDOC', 'Seguimiento de Documentos','si');
+select wf.f_import_ttipo_proceso ('insert','DOC',NULL,NULL,'SD','Documentos','','','si','','opcional','','DOC',NULL);
+select wf.f_import_ttipo_estado ('insert','borrador','DOC','Borrador','si','no','no','funcion_listado','','ninguno','','','no','no',NULL,'<font color="99CC00" size="5"><font size="4">{TIPO_PROCESO}</font></font><br><br><b>&nbsp;</b>Tramite:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <b>{NUM_TRAMITE}</b><br><b>&nbsp;</b>Usuario :<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {USUARIO_PREVIO} </b>en estado<b>&nbsp; {ESTADO_ANTERIOR}<br></b>&nbsp;<b>Responsable:&nbsp;&nbsp; &nbsp;&nbsp; </b><b>{FUNCIONARIO_PREVIO}&nbsp; {DEPTO_PREVIO}<br>&nbsp;</b>Estado Actual<b>: &nbsp; &nbsp;&nbsp; {ESTADO_ACTUAL}</b><br><br><br>&nbsp;{OBS} <br>','Aviso WF ,  {PROCESO_MACRO}  ({NUM_TRAMITE})','','no','','','','','','','',NULL);
+select wf.f_import_ttipo_estado ('insert','vobo','DOC','VoBo','no','no','no','funcion_listado','','ninguno','','','no','no',NULL,'<font color="99CC00" size="5"><font size="4">{TIPO_PROCESO}</font></font><br><br><b>&nbsp;</b>Tramite:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <b>{NUM_TRAMITE}</b><br><b>&nbsp;</b>Usuario :<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {USUARIO_PREVIO} </b>en estado<b>&nbsp; {ESTADO_ANTERIOR}<br></b>&nbsp;<b>Responsable:&nbsp;&nbsp; &nbsp;&nbsp; </b><b>{FUNCIONARIO_PREVIO}&nbsp; {DEPTO_PREVIO}<br>&nbsp;</b>Estado Actual<b>: &nbsp; &nbsp;&nbsp; {ESTADO_ACTUAL}</b><br><br><br>&nbsp;{OBS} <br>','Aviso WF ,  {PROCESO_MACRO}  ({NUM_TRAMITE})','','no','','','','','','','',NULL);
+select wf.f_import_ttipo_estado ('insert','vbconta','DOC','VoBo Conta','no','no','no','funcion_listado','','ninguno','','','si','no',NULL,'<font color="99CC00" size="5"><font size="4">{TIPO_PROCESO}</font></font><br><br><b>&nbsp;</b>Tramite:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <b>{NUM_TRAMITE}</b><br><b>&nbsp;</b>Usuario :<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {USUARIO_PREVIO} </b>en estado<b>&nbsp; {ESTADO_ANTERIOR}<br></b>&nbsp;<b>Responsable:&nbsp;&nbsp; &nbsp;&nbsp; </b><b>{FUNCIONARIO_PREVIO}&nbsp; {DEPTO_PREVIO}<br>&nbsp;</b>Estado Actual<b>: &nbsp; &nbsp;&nbsp; {ESTADO_ACTUAL}</b><br><br><br>&nbsp;{OBS} <br>','Aviso WF ,  {PROCESO_MACRO}  ({NUM_TRAMITE})','','no','','','','','','','',NULL);
+select wf.f_import_ttipo_estado ('insert','finalizado','DOC','Finalizado','no','no','si','anterior','','ninguno','','','no','no',NULL,'<font color="99CC00" size="5"><font size="4">{TIPO_PROCESO}</font></font><br><br><b>&nbsp;</b>Tramite:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <b>{NUM_TRAMITE}</b><br><b>&nbsp;</b>Usuario :<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {USUARIO_PREVIO} </b>en estado<b>&nbsp; {ESTADO_ANTERIOR}<br></b>&nbsp;<b>Responsable:&nbsp;&nbsp; &nbsp;&nbsp; </b><b>{FUNCIONARIO_PREVIO}&nbsp; {DEPTO_PREVIO}<br>&nbsp;</b>Estado Actual<b>: &nbsp; &nbsp;&nbsp; {ESTADO_ACTUAL}</b><br><br><br>&nbsp;{OBS} <br>','Aviso WF ,  {PROCESO_MACRO}  ({NUM_TRAMITE})','','no','','','','','','','',NULL);
+select wf.f_import_testructura_estado ('insert','borrador','vobo','DOC',1,'');
+select wf.f_import_testructura_estado ('insert','vobo','vobo','DOC',1,'');
+select wf.f_import_testructura_estado ('insert','vobo','vbconta','DOC',1,'');
+select wf.f_import_testructura_estado ('insert','vbconta','finalizado','DOC',1,'');
+
+
+/********************************************F-DAT-RAC-SEG-0-13/02/2017********************************************/
+
 
