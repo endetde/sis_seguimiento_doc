@@ -34,7 +34,7 @@ Phx.vista.TipoDoc=Ext.extend(Phx.gridInterfaz,{
 		{
 			config:{
 				name: 'codigo',
-				fieldLabel: 'Código',
+				fieldLabel: 'CÃ³digo',
 				allowBlank: false,
 				anchor: '80%',
 				gwidth: 150,
@@ -80,7 +80,7 @@ Phx.vista.TipoDoc=Ext.extend(Phx.gridInterfaz,{
 		{
 			config:{
 				name: 'fecha_reg',
-				fieldLabel: 'Fecha creación',
+				fieldLabel: 'Fecha creaciÃ³n',
 				allowBlank: true,
 				anchor: '80%',
 				gwidth: 100,

@@ -57,7 +57,7 @@ Phx.vista.Informe=Ext.extend(Phx.gridInterfaz,{
 				name: 'id_tipo_doc',
 				fieldLabel: 'Tipo Doc',
 				allowBlank: false,
-				emptyText: 'Elija una opción',
+				emptyText: 'Elija una opciÃ³n',
 				store: new Ext.data.JsonStore({
 					url: '../../sis_seguimiento_doc/control/TipoDoc/ListarTipoDoc',
 					id: 'id_tipo_doc',
@@ -99,7 +99,7 @@ Phx.vista.Informe=Ext.extend(Phx.gridInterfaz,{
 		{
 			config:{
 				name: 'num_doc',
-				fieldLabel: 'Número Doc',
+				fieldLabel: 'NÃºmero Doc',
 				allowBlank: true,
 				anchor: '80%',
 				gwidth: 100,
